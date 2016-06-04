@@ -1,0 +1,33 @@
+what you need to know to make this work for you:
+
+easyMultiThread.py contains a class called threadingOperation.
+
+the __init__ for this class takes two or three arguments
+
+threadingOperation(a,b)
+threadingOperation(a,b,c)
+
+a is a pointer that you wish to have multithreaded (see below for more detail on this)
+b is the number of threads that you wish to create
+c is an optional parameter that tells the program what form you would like your outputs in, if nothign is specified it will not return anything, if "list" is specified, it will return a llist containing the results of each instance of the multithreaded function (not necessarily in same order as input list). If "dict" is specified, it will return a dictionary with the keys being the elements of the input list, and the values being that which is returned from the multithreaded function.
+
+once you have a threadingOperation object, you will need to run it
+for a threadingOperation w, you would call the method thread()
+
+w.thread(m)
+
+where m is a list of the things to be sent into the multithreaded function.
+the thread method can return stuff depending on user preference.
+
+What functions can be multithreaded?
+Really anything. The restriction is that it accepts exactly one argument, (could be a list or dict, containing multiple things)
+
+if we have:
+def someFunction(x):
+	do some stuff
+	return y
+
+we would write:
+w=threadingOperation(someFunction,###,"some string")
+w.thread()
+
